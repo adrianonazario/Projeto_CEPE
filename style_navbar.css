@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+
+li, a, button{
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 17px;
+}
+
+ul{
+    list-style: none;
+}
+
+ .nav-list ul{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+
+
+
+ .nav-list ul li > ul {
+    display: none;
+    flex-direction: column;
+}
+
+ .nav-list ul li > ul li{
+    width: 100%;
+}
+
+ .nav-list ul li:hover > ul {
+    display:flex;
+}
+
+ .nav-list a{
+    display: block;
+    background: #fff;
+    color: #000000;
+  
+}
+
+ .nav-list a:hover{
+    background: radial-gradient(100% 3009.31% at 0% 100%, #F59E0B 0%, #D97706 100%);
+    color: #fff;
+}
+
+ .nav-list .sub-menu li > a{
+    background: #fff;
+    color: #000000;
+
+}
+
+ .nav-list .sub-menu li > a:hover {
+    background: radial-gradient(100% 3009.31% at 0% 100%, #F59E0B 0%, #D97706 100%); 
+}
