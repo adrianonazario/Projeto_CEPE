@@ -11,6 +11,12 @@
 <body>
  <header>   
 <div id="menuDemo">
+
+    <nav id="nav">
+        <button id="btn-mobile">Menu
+            <span id="hamburger"></span>
+        </button>
+
 <div id="cssmenu">
 
     
@@ -20,7 +26,7 @@
             <li><a href="#">Home</a></li>
             <li><a href="#">Quem Somos</a></li>
         <li>       
-            <span>Modalidades <i class="arrow"></i></span>
+            <span class="html-cssarrow"> Modalidades <i class="arrow"></i></span>
             <ul class="dropdown">
                 <li><a href="#">Atletismo</a></li>
                 <li><a href="#">Basquete</a></li>
@@ -33,8 +39,8 @@
         </li>
         <li><a href="#">Notícia</a></li>
         <li class="full-width">
-            <span>Transparência <i class="arrow"></i></span>
-            <div class="dropdown">
+            <span class="html-cssarrow">Transparência <i class="arrow"></i></span>
+            <div class="dropdown" id="drops">
                 <div class="clm">
                     <h3>Transparência</h3>
                     <a href="#">ESTATUTO, DIRETORIA E ATAS</a>
@@ -64,7 +70,8 @@
     </ul>
 </div>
 </div>
+</nav>
 </header>
-
+<script src="menu.js"></script>
 </body>
 </html>

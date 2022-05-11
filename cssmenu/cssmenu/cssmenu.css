@@ -39,6 +39,11 @@ body {
     padding:0;
 }
 
+.logo{
+    position: relative;
+    top: 3.5px;
+}
+
 /*Top level items
 ---------------------------------------*/
 
@@ -61,8 +66,7 @@ body {
     background-color:#F59E0B;
 }
 
-/*Sub level items
----------------------------------------*/
+/*----------------------Sub level items------------------------------*/
 #cssmenu .dropdown
 {
     text-align:left;
@@ -81,7 +85,6 @@ body {
 #cssmenu .dropdown li {
     display: block;  
 }
-
 #cssmenu .dropdown li > span, #cssmenu .dropdown li > a, #cssmenu .clm a, #cssmenu .clm h3 
 {
     font-size:16px;
@@ -93,14 +96,10 @@ body {
     color:inherit;
     text-decoration:none;
 }
+
 #cssmenu .clm h3 {
     font-size:20px;
     font-weight:700;
-}
-#cssmenu .sub-item {
-    background-color:#FFFFFF;
-    position:relative;       
-    transition:all 0.3s;
 }
 
 #cssmenu .dropdown li:hover > span, #cssmenu .dropdown li:hover > a
@@ -110,14 +109,15 @@ body {
     background-color:#EEEEEE;
 }
 
+
+
 #cssmenu .clm a:hover
 {
     color:#000000;
     transition:color 0.2s;
 }
 
-#cssmenu .dropdown.right0 {left:auto;right:0;} 
-#cssmenu .dropdown li > .dropdown.right0 {left:auto;right:100%;} 
+
        
 #cssmenu li.full-width{
     position:static;
@@ -143,10 +143,10 @@ body {
 
 #cssmenu ul.dropdown
 {
-    min-width:180px; /* Sub level menu min width */
+    min-width:178px; /* Sub level menu min width */
 }
 
-#cssmenu div.dropdown  {
+#cssmenu .dropdown  {
     text-align:center;
 }
 
@@ -177,26 +177,181 @@ body {
     width: 0;
     height: 0;
     vertical-align:middle;
-    overflow:hidden;/*for IE6*/
+}
+
+#cssmenu li span:hover .arrow{
+    transform: rotate(-45deg);
+
 }
         
-#cssmenu .dropdown .arrow {
-    transform:rotate(45deg);
-    top:50%;margin-top:-7px;
-    position:absolute;left:auto;right:20px;
-} 
 
 
 
-@keyframes topItemAnimation{
-  from {opacity: 0;  transform:translate3d(-16%, 0, 0);}
-  to {opacity: 1; transform:translate3d(0, 0, 0);}
+
+
+#btn-mobile{
+    display: none;
 }
-#cssmenu li a {animation:none;}
-#cssmenu.active li a { animation: topItemAnimation 0.5s ease 0.5s backwards;}
-#cssmenu.active li:nth-of-type(1) a { animation: topItemAnimation 0.5s ease 0.08333333333333333s backwards;}
-#cssmenu.active li:nth-of-type(2) a { animation: topItemAnimation 0.5s ease 0.16666666666666666s backwards;}
-#cssmenu.active li:nth-of-type(3) a { animation: topItemAnimation 0.5s ease 0.25s backwards;}
-#cssmenu.active li:nth-of-type(4) a { animation: topItemAnimation 0.5s ease 0.3333333333333333s backwards;}
-#cssmenu.active li:nth-of-type(5) a { animation: topItemAnimation 0.5s ease 0.4166666666666667s backwards;}@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) { #cssmenu.active li a{animation:none!important;}}
+
+/*----------------responsividade nav-bar---------------------*/
+
+
+@media (max-width:600px){
+
+
+    .logo{
+        display: none;
+    }
+    
+    #cssmenu{
+        display: none;
+    }
+
+    #cssmenu  {
+        width:100%;
+        max-width:500px;
+        display:block;
+        background-color:#FFFFFF;
+        border:1px solid rgba(0,0,0,0.2);
+        box-sizing:border-box;
+    }
+
+    #cssmenu li {
+        display: block;
+    }
+
+    #cssmenu  {
+        position:relative;
+        left:-130%;
+        right:auto; box-shadow:4px 0 18px rgba(0,0,0,0.3);
+        transition:all 411ms cubic-bezier(.7, 0,1,.4);
+    }
+
+    #nav.active #cssmenu {
+        left:0;
+        transition:all 411ms cubic-bezier(.16,.76,.45,1);
+    }
+
+    #cssmenu {z-index:99999999;}
+
+    #cssmenu ul  {
+        background-color:transparent;
+        transition:all 411ms ease;
+        box-sizing:border-box;
+        border:none;
+        border-radius: 0;
+    }
+    #cssmenu li {
+        text-align:center;
+    }
+
+    #cssmenu .dropdown {
+        border:none;
+        border-radius:0;
+        box-shadow:none;
+    }
+
+      
+
+    #cssmenu ul.dropdown
+{
+    min-width:100%; /* Sub level menu min width */
+}
+
+
+
+#cssmenu .clm img{
+    display: none;
+
+}
+
+
+/*-----------Arrows----------------*/
+#cssmenu .arrow { 
+    border-style:solid; border-width:2px 2px 0 0; padding:5px; transform:rotate(45deg);margin-top:-10px;margin-left:5px;
+
+}
+
+#cssmenu li span:hover .arrow{
+    transform: rotate(135deg);
+
+}
+
+
+
+
+
+/*------------hambuger------------------*/
+
+#btn-mobile{
+    display: flex;
+    padding: .5rem 1rem;
+    font-size: 1rem;
+    border: none;
+    background: none;
+    cursor: pointer;
+    gap: 0.5rem;
+}
+
+#hamburger{
+    border-top: 2px solid;
+    width: 20px;
+    
+}
+
+#hamburger::after, #hamburger::before{
+    content:'';
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: currentColor;
+    margin-top: 5px;
+    transition: 0.3s;
+    position: relative;
+}
+
+#nav.active #hamburger {
+  border-top-color: transparent;
+}
+
+#nav.active #hamburger::before {
+    transform: rotate(135deg);
+  }
+
+  #nav.active #hamburger::after {
+    transform: rotate(-135deg);
+    top: -7px;
+  }
+ 
+
+  #cssmenu .clm
+{
+    text-align:center;
+  
+}
+
+#cssmenu li.full-width .dropdown{
+    width:100%;
+    height: 100%;
+
+}  
+
+
+
+
+
+  /*-----------HOVER----------*/
+
+  #cssmenu li:hover > .dropdown
+  {
+    display: none;
+  }
+
+
+
+
+}
+
+
+/* section */
 
